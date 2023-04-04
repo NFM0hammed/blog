@@ -364,6 +364,7 @@ table tr td a.add {
     background-color: var(--secondBackgroundColor);
     text-align: center;
     margin-top: var(--margin);
+    direction: rtl;
 }
 /* End dashboard page */
 
