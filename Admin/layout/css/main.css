@@ -310,7 +310,7 @@ table tr td a.add {
     font-weight: 500;
     margin: 0;
     padding: 10px 0;
-    border-top: 2px solid;
+    border-top: 5px solid;
 }
 .last-stats {
     display: flex;
@@ -333,9 +333,13 @@ table tr td a.add {
 .last-three-comms span {
     position: relative;
     display: block;
+    background-color: var(--whiteColor);
     font-size: 18px;
     font-weight: 300;
+    font-family: tahoma;
+    margin: 20px;
     padding: 25px;
+    border-right: 5px solid var(--mainColor);
 }
 .last-stats div:first-of-type span  {
     text-align: left;
@@ -344,27 +348,12 @@ table tr td a.add {
 .last-three-comms span {
     text-align: right;
 }
-.last-stats span::after,
-.last-three-comms span::after {
-    content: "";
-    position: absolute;
-    background-color: var(--mainColor);
-    width: 15px;
-    height: 2px;
-    bottom: 11px;
-}
-.last-stats div:first-of-type span::after {
-    left: 30px;
-}
-.last-stats div:last-of-type span::after,
-.last-three-comms span::after {
-    right: 30px;
-}
 .last-three-comms {
     background-color: var(--secondBackgroundColor);
     text-align: center;
     margin-top: var(--margin);
     direction: rtl;
+    padding-bottom: 1px;
 }
 /* End dashboard page */
 
