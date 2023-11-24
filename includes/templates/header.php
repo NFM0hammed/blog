@@ -14,6 +14,6 @@
         <!-- Google fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;1,300;1,400&family=Poppins:wght@100;200;300;500&family=Roboto:wght@300;500;700&family=Work+Sans:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;500;800&family=Open+Sans:ital,wght@0,300;0,400;1,300;1,400&family=Poppins:wght@100;200;300;500&family=Roboto:wght@300;500;700&family=Work+Sans:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
     </head>
     <body>

@@ -102,8 +102,8 @@
 
                                     ?>
 
-                                        <input class="profile-img" type="file" id="profile-img" />
-                                        <label for="profile-img">
+                                        <input type="file" id="profile-img" />
+                                        <label class="profile-img" for="profile-img">
                                             <img src="Admin/uploads/<?=$row["user_img"]?>" alt="">
                                             <span class="avatar">Avatar</span>
                                         </label>

@@ -10,7 +10,6 @@
                     <h1 class="title">مقالات عن <?=$title?></h1>
                     <h3 class="description">
                         .هنا مقالات وأخبار عن كل ماهو جديد في مجال <?=$title?>
-                        <i class="fa-solid fa-newspaper newspaper"></i>
                     </h3>
                     
                     <?php
@@ -30,6 +29,7 @@
                             foreach($rows as $row) {
 
                                 ?>
+                                
                                     <div class="category">
                                         <h3><a href="articles.php?action=article&id=<?=$row["article_id"]?>"><?=$row["article_title"]?></a></h3>
                                         <img src="Admin\uploads\<?=$row["article_img"]?>" alt="">

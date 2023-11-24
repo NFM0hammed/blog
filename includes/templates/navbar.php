@@ -36,9 +36,13 @@
                 <a href="IT-section.php">قسم تقنية المعلومات</a>
                 <a href="index.php">الرئيسية</a>
             </div>
-            <div class="logo">
+            <!-- <div class="logo">
                 <h1>مدونة التقني</h1>
                 <i class="fa-solid fa-blog"></i>
+            </div> -->
+            <div class="logo">
+                <img src="./layout/logo/icon2.svg" alt="">
+                <img src="./layout/logo/icon.svg" alt="">
             </div>
         </div>
     </div>

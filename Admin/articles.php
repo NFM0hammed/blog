@@ -65,8 +65,8 @@
                 "articles",
                 "INNER JOIN users ON articles.user_id = users.user_id INNER JOIN categories ON articles.category_id = categories.category_id",
                 "",
-                "",
-                "ORDER BY article_id DESC"
+                ""
+                // "ORDER BY article_id DESC"
             );
 
             $count = count($rows);

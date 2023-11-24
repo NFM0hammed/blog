@@ -26,7 +26,7 @@
     background-color: #03a9f4a1;
 }
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Cairo', sans-serif;
     background-color: var(--secondBackgroundColor);
 }
 .scroll-to-top {
@@ -120,7 +120,6 @@ li {
     text-align: right;
     font-size: 25px;
     font-weight: normal;
-    font-family: tahoma;
 }
 .title::after {
     content: "";
@@ -136,7 +135,6 @@ li {
     color: #777;
     text-align: right;
     font-size: 15px;
-    font-family: tahoma;
     margin-top: 50px;
     padding: 20px 10px;
     border-right: 5px solid;
@@ -153,7 +151,6 @@ li {
 }
 .categories {
     background-color: var(--whiteColor);
-    font-family: tahoma;
     padding: var(--padding);
 }
 @media(max-width: 767px) {
@@ -209,7 +206,6 @@ hr {
 }
 .get-articles {
     background-color: var(--whiteColor);
-    font-family: tahoma;
     padding: var(--padding);
 }
 @media(max-width: 767px) {
@@ -251,16 +247,27 @@ hr {
     padding: 20px 10px;
     border-right: 5px solid;
 }
-.get-articles h1 i {
-    order: -1;
+.get-articles .writer > span {
+    display: block;
+    text-align: right;
+    font-size: 13px;
+    margin: 10px;
 }
-@media(max-width: 767px) {
-    .get-articles h1 {
-        flex-direction: column;
-    }
-    .get-articles h1 i {
-        margin-bottom: 10px;
-    }
+.get-articles .writer .info {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+.get-articles .writer .info span {
+    color: var(--mainBackgroundColor);
+    margin-right: 10px;
+}
+.get-articles .writer .info img {
+    width: 50px;
+    height: 50px;
+    padding: 5px;
+    border: 1px solid #EEE;
+    border-radius: 50%;
 }
 .get-articles .article-likes {
     display: flex;
@@ -304,7 +311,7 @@ hr {
     line-height: 3;
     direction: rtl;
     padding: 20px;
-    border-top: 3px solid;
+    border-top: 2px solid;
 }
 .get-articles p span {
     display: block;
@@ -509,8 +516,21 @@ nav {
 .info h1 {
     color: var(--mainColor);
 }
+@media(max-width: 767px) {
+    .info h1 {
+        font-size: 28px;
+    }
+}
 .info p {
     color: #777;
+    font-size: 18px;
+    line-height: 1.6;
+}
+@media(max-width: 767px) {
+    .info p {
+        font-size: 16px;
+        line-height: 1.8;
+    }
 }
 .info p span {
     display: block;
@@ -640,7 +660,6 @@ nav {
 .articles-views-section .articles-views .article-view .number-views span:first-child {
     color: #777;
     font-size: 18px;
-    font-family: tahoma;
 }
 .articles-views-section .articles-views .article-view .number-views span:last-child {
     color: var(--mainColor);

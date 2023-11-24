@@ -110,8 +110,37 @@
                         <span><?=$row1["description"]?></span>
                         <h1>
                             <?=$row1["article_title"]?>
-                            <i class="fa-solid fa-newspaper newspaper"></i>
                         </h1>
+                        <div class="writer">
+                            <div class="info">
+                                <span><?=$row1["username"]?></span>
+
+                                <!-- Check if the user has an img or not -->
+                                <?php
+
+                                    if($row1["user_img"] != "") {
+                                        
+                                        ?>
+
+                                            <img src="Admin/uploads/<?=$row1["user_img"]?>">
+
+                                        <?php
+
+                                    } else {
+
+                                        ?>
+
+                                            <img src="Admin/uploads/defualt_image.png">
+
+                                        <?php
+
+                                    }
+
+                                ?>
+                                
+                            </div>
+                            <span><?=$row1["date_publication"]?></span>
+                        </div>
                         <!-- Start article likes -->
                         <div class="article-likes">
                             <h4>
@@ -154,8 +183,6 @@
                         <img src="Admin\uploads\<?=$row1["article_img"]?>" alt="">
                         <p>
                             <?=$row1["article_content"]?>
-                            <span>الكاتب: <?=$row1["username"]?></span>
-                            <span>تاريخ النشر: <?=$row1["date_publication"]?></span>
                         </p>
                         <div class="comments">
                            <h3>التعليقات</h3>
