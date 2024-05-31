@@ -84,7 +84,10 @@
 
                                                     ?>
 
-                                                        <img src="./admin/uploads/<?=$data["user_img"]?>" alt="">
+                                                        <img
+                                                                src        =        "./admin/uploads/<?=$data["user_img"]?>"
+                                                                alt        =        ""
+                                                        >
 
                                                     <?php
 
@@ -93,7 +96,10 @@
                                                     ?>
 
                                                         <!-- Defualt image -->
-                                                        <img src="./admin/uploads/defualt_image.png" alt="">
+                                                        <img
+                                                                src        =        "./admin/uploads/defualt_image.png"
+                                                                alt        =        ""
+                                                        >
 
                                                     <?php
 
@@ -130,7 +136,10 @@
 
                                                     ?>
 
-                                                        <img src="./admin/uploads/<?=$data["user_img"]?>" alt="">
+                                                        <img
+                                                                src        =        "./admin/uploads/<?=$data["user_img"]?>"
+                                                                alt        =        ""
+                                                        >
 
                                                     <?php
 
@@ -139,7 +148,10 @@
                                                     ?>
 
                                                         <!-- Defualt image -->
-                                                        <img src="./admin/uploads/defualt_image.png" alt="">
+                                                        <img
+                                                                src        =        "./admin/uploads/defualt_image.png"
+                                                                alt        =        ""
+                                                        >
 
                                                     <?php
 
