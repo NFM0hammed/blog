@@ -38,11 +38,28 @@
 
                 <div class="container">
                     <h1 class="title">Add article</h1>
-                    <form class="manage-article" action="?action=insert" method="POST" enctype= multipart/form-data>
-                        <input type="text" name="article_title" placeholder="عنوان المقال" />
-                        <input type="file" name="article_img" id="article_img" />
+                    <form
+                            class   =   "manage-article"
+                            action  =   "?action=insert"
+                            method  =   "POST"
+                            enctype =   multipart/form-data
+                    >
+                        <input
+                                type        =   "text"
+                                name        =   "article_title"
+                                placeholder =   "عنوان المقال"
+                        />
+                        <input
+                                type        =   "file"
+                                name        =   "article_img"
+                                id          =   "article_img"
+                        />
                         <label for="article_img">
-                            <img class="article-img" src="uploads\defualt_article_image.png" alt="">
+                            <img
+                                class       =   "article-img"
+                                src         =   "uploads\defualt_article_image.png"
+                                alt         =   ""
+                            >
                         </label>
                         <textarea name="article_content" placeholder="محتوى المقال"></textarea>
                         <span>تصنيف المقال</span>
@@ -52,7 +69,10 @@
                             <option value="3">Cyper</option>
                             <option value="4">Networks</option>
                         </select>
-                        <input type="submit" value="Add">
+                        <input 
+                                type        =   "submit"
+                                value       =   "Add"
+                        >
                     </form>
                 </div>
 
@@ -98,8 +118,12 @@
                                                 <td class="dir"><?=$row["article_title"]?></td>
                                                 <td><?=$row["category_name"]?></td>
                                                 <td>
-                                                    <a class="edit" href="?action=edit&id=<?=$row["article_id"]?>">Edit</a>
-                                                    <a class="delete" href="?action=delete&id=<?=$row["article_id"]?>">Delete</a>
+                                                    <a
+                                                        class   =   "edit"
+                                                        href    =   "?action=edit&id=<?=$row["article_id"]?>">Edit</a>
+                                                    <a
+                                                        class   =   "delete"
+                                                        href    =   "?action=delete&id=<?=$row["article_id"]?>">Delete</a>
                                                 </td>
                                             </tr>
 
@@ -125,7 +149,7 @@
 
         } elseif($action === "edit") {
 
-            $articleid = isset($_GET["id"]) ? intval($_GET["id"]) : 0;
+            $articleid = isset($_GET["id"]) && is_numeric($_GET["id"]) ? intval($_GET["id"]) : 0;
 
             $check = checkData(
                 "articles",
@@ -146,11 +170,28 @@
 
                     <div class="container">
                         <h1 class="title">Edit article</h1>
-                        <form class="manage-article" action="?action=update" method="POST" enctype= multipart/form-data>
-                            <input type="text" name="article_title" value="<?=$row["article_title"]?>" />
-                            <input type="file" name="article_img" id="article_img" />
+                        <form
+                                class   =   "manage-article"
+                                action  =   "?action=update"
+                                method  =   "POST"
+                                enctype =   multipart/form-data
+                        >
+                            <input
+                                    type    =   "text"
+                                    name    =   "article_title"
+                                    value   =   "<?=$row["article_title"]?>"
+                            />
+                            <input
+                                    type    =   "file"
+                                    name    =   "article_img"
+                                    id      =   "article_img"
+                            />
                             <label for="article_img">
-                                <img class="article-img" src="uploads\<?=$row["article_img"]?>" alt="">
+                                <img
+                                    class   =   "article-img"
+                                    src     =   "uploads\<?=$row["article_img"]?>"
+                                    alt     =   ""
+                                >
                             </label>
                             <textarea name="article_content"><?=$row["article_content"]?></textarea>
                             <span>تصنيف المقال</span>
@@ -160,8 +201,15 @@
                                 <option value="3" <?php if($row["category_id"] == 3) echo "selected" ?>>Cyper</option>
                                 <option value="4" <?php if($row["category_id"] == 4) echo "selected" ?>>Networks</option>
                             </select>
-                            <input type="hidden" name="article_id" value="<?=$articleid?>">
-                            <input type="submit" value="Update">
+                            <input
+                                    type    =   "hidden"
+                                    name    =   "article_id"
+                                    value   =   "<?=$articleid?>"
+                            >
+                            <input
+                                    type    =   "submit"
+                                    value   =   "Update"
+                            >
                         </form>
                     </div>
 
@@ -447,7 +495,7 @@
 
         } elseif($action === "delete") {
 
-            $articleid = isset($_GET["id"]) ? intval($_GET["id"]) : 0;
+            $articleid = isset($_GET["id"]) && is_numeric($_GET["id"]) ? intval($_GET["id"]) : 0;
             
             $check = checkData(
                 "articles",

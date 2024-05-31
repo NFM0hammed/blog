@@ -38,10 +38,25 @@
 
                 <div class="container">
                     <h1 class="title">Add category</h1>
-                    <form class="manage-category" action="?action=insert" method="POST">
-                        <input type="text" name="category_name" placeholder="إضافة صنف">
-                        <input type="text" name="description" placeholder="إضافة وصف">
-                        <input type="submit" value="Add">
+                    <form
+                            class   =   "manage-category"
+                            action  =   "?action=insert"
+                            method  =   "POST"
+                    >
+                        <input
+                                type        =   "text"
+                                name        =   "category_name"
+                                placeholder =   "إضافة صنف"
+                        >
+                        <input
+                                type        =   "text"
+                                name        =   "description"
+                                placeholder =   "إضافة وصف"
+                        >
+                        <input
+                                type        =   "submit"
+                                value       =   "Add"
+                        >
                     </form>
                 </div>
 
@@ -80,8 +95,12 @@
                                                 <td><?=$row["category_name"]?></td>
                                                 <td><?=$row["description"]?></td>
                                                 <td>
-                                                    <a class="edit" href="?action=edit&id=<?=$row["category_id"]?>">Edit</a>
-                                                    <a class="delete" href="?action=delete&id=<?=$row["category_id"]?>">Delete</a>
+                                                    <a
+                                                        class   =   "edit"
+                                                        href    =   "?action=edit&id=<?=$row["category_id"]?>">Edit</a>
+                                                    <a
+                                                        class   =   "delete"
+                                                        href    =   "?action=delete&id=<?=$row["category_id"]?>">Delete</a>
                                                 </td>
                                             </tr>
 
@@ -107,7 +126,7 @@
 
         } elseif($action === "edit") {
 
-            $categoryid = isset($_GET["id"]) ? intval($_GET["id"]) : 0;
+            $categoryid = isset($_GET["id"]) && is_numeric($_GET["id"]) ? intval($_GET["id"]) : 0;
 
             $check = checkData(
                 "categories",
@@ -128,11 +147,30 @@
 
                         <div class="container">
                             <h1 class="title">Edit category</h1>
-                            <form class="manage-category" action="?action=update" method="POST">
-                                <input type="text" name="category_name" value="<?=$row["category_name"]?>">
-                                <input type="text" name="description" value="<?=$row["description"]?>">
-                                <input type="hidden" name="category_id" value="<?=$categoryid?>">
-                                <input type="submit" value="Update">
+                            <form
+                                    class   =   "manage-category"
+                                    action  =   "?action=update"
+                                    method  =   "POST"
+                            >
+                                <input
+                                        type    =   "text"
+                                        name    =   "category_name"
+                                        value   =   "<?=$row["category_name"]?>"
+                                >
+                                <input
+                                        type    =   "text"
+                                        name    =   "description"
+                                        value   =   "<?=$row["description"]?>"
+                                >
+                                <input
+                                        type    =   "hidden"
+                                        name    =   "category_id"
+                                        value   =   "<?=$categoryid?>"
+                                >
+                                <input
+                                        type    =   "submit"
+                                        value   =   "Update"
+                                >
                             </form>
                         </div>
     
@@ -316,7 +354,7 @@
 
         } elseif($action === "delete") {
 
-            $categoryid = isset($_GET["id"]) ? intval($_GET["id"]) : 0;
+            $categoryid = isset($_GET["id"]) && is_numeric($_GET["id"]) ? intval($_GET["id"]) : 0;
 
             $check = checkData(
                 "categories",

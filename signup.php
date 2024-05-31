@@ -19,18 +19,33 @@
 <!-- Start sign up form -->
 <div class="container">
     <div class="form sign-up">
-        <h1 class="signup-signin">Create account</h1>
-        <input class="signup_username" type="text"     placeholder="Username" />
-        <input class="signup_email"    type="text"     placeholder="Email" />
-        <input class="signup_password" type="password" placeholder="Password" />
-        <input class="signup_submit"   type="submit"   id="register" value="Sign up" />
+        <h1 class="signup-signin">إنشاء حساب</h1>
+        <input
+                class       =   "signup_username"
+                type        =   "text"
+                placeholder =   "اسم المستخدم"
+        />
+        <input
+                class       =   "signup_email"
+                type        =   "text"
+                placeholder =   "الإيميل"
+        />
+        <input
+                class       =   "signup_password"
+                type        =   "password"
+                placeholder =   "كلمة المرور"
+        />
+        <input
+                class       =   "signup_submit"
+                type        =   "submit"
+                id          =   "register"
+                value       =   "إنشاء الحساب"
+        />
     </div>
 </div>
 
 <script>
-    /*
-        Sign up Ajax
-    */
+    // Sign up Ajax
     let signup_username =  document.querySelector(".sign-up .signup_username"),
         signup_email    =  document.querySelector(".sign-up .signup_email"),
         signup_password =  document.querySelector(".sign-up .signup_password"),
@@ -57,7 +72,7 @@
             
                     emptyUsername.className = "error";
             
-                    emptyUsername.textContent = "The username is empty !";
+                    emptyUsername.textContent = "اسم المستخدم فارغ !";
             
                     signup_username.before(emptyUsername);
                     
@@ -73,7 +88,7 @@
             
                     emptyEmail.className = "error";
             
-                    emptyEmail.textContent = "The email is empty !";
+                    emptyEmail.textContent = "الإيميل فارغ !";
             
                     signup_email.before(emptyEmail);
                     
@@ -89,7 +104,7 @@
             
                     emptyPassword.className = "error";
             
-                    emptyPassword.textContent = "The password is empty !";
+                    emptyPassword.textContent = "كلمة المرور فارغة !";
             
                     signup_password.before(emptyPassword);
                     
@@ -109,7 +124,7 @@
         
                         successRegister.className = "success";
         
-                        successRegister.textContent = "Successful register";
+                        successRegister.textContent = "تم إنشاء الحساب";
         
                         signup_username.before(successRegister);
 
@@ -127,7 +142,7 @@
         
                         failedRegister.className = "error";
         
-                        failedRegister.textContent = "The email is already exists !";
+                        failedRegister.textContent = "الإيميل مسجل مسبقًا !";
         
                         signup_email.before(failedRegister);
         
@@ -154,5 +169,4 @@
         request.send(`username=${signup_username.value}&email=${signup_email.value}&password=${signup_password.value}`);
 
     });
-
 </script>

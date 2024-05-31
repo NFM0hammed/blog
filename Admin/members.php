@@ -65,7 +65,6 @@
                                             <td><?=$row["user_id"]?></td>
                                             <td><?=$row["username"]?></td>
                                             <td><?=$row["email"]?></td>
-
                                             <td>
 
                                                 <?php
@@ -74,7 +73,11 @@
 
                                                         ?>
 
-                                                            <img class="avatar" src="uploads\<?=$row["user_img"]?>" alt="">
+                                                            <img
+                                                                    class   =   "avatar"
+                                                                    src     =   "uploads\<?=$row["user_img"]?>"
+                                                                    alt     =   ""
+                                                            >
 
                                                         <?php
 
@@ -82,7 +85,11 @@
 
                                                         ?>
                                                             <!-- Defalut image -->
-                                                            <img class="avatar" src="uploads\defualt_image.png" alt="">
+                                                            <img
+                                                                    class   =   "avatar"
+                                                                    src     =   "uploads\defualt_image.png"
+                                                                    alt     =   ""
+                                                            >
 
                                                         <?php
 
@@ -91,10 +98,11 @@
                                                 ?>
 
                                             </td>
-                                            
                                             <td class="date-reg"><?=$row["date_registration"]?></td>
                                             <td>
-                                                <a class="delete" href="?action=delete&id=<?=$row["user_id"]?>">Delete</a>
+                                                <a
+                                                    class   =   "delete"
+                                                    href    =   "?action=delete&id=<?=$row["user_id"]?>">Delete</a>
 
                                                 <?php
                                                     
@@ -103,7 +111,9 @@
 
                                                         ?>
 
-                                                            <a class="add" href="?action=add&id=<?=$row["user_id"]?>">Add</a>
+                                                            <a
+                                                                class   =   "add"
+                                                                href    =   "?action=add&id=<?=$row["user_id"]?>">Add</a>
 
                                                         <?php
                                                     }
@@ -134,7 +144,7 @@
 
         } elseif($action === "delete") {
 
-            $userid = isset($_GET["id"]) ? intval($_GET["id"]) : 0;
+            $userid = isset($_GET["id"]) && is_numeric($_GET["id"]) ? intval($_GET["id"]) : 0;
 
             $check = checkData(
                 "users",
@@ -174,7 +184,7 @@
             // Add admin to member [only by root]
             if($checkRole === 1) {
 
-                $userid = isset($_GET["id"]) ? intval($_GET["id"]) : 0;
+                $userid = isset($_GET["id"]) && is_numeric($_GET["id"]) ? intval($_GET["id"]) : 0;
     
                 $check = checkData(
                     "users",

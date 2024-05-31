@@ -22,4 +22,5 @@ articleImg && articleImg.addEventListener("change", () => {
 });
 
 // Toggle menu
-document.querySelector(".menu").addEventListener("click", () => { document.querySelector(".navbar ul").classList.toggle("open") });
+let menu = document.querySelector(".menu");
+menu && menu.addEventListener("click", () => { document.querySelector(".navbar ul").classList.toggle("open") });

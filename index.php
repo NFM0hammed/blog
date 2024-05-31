@@ -18,7 +18,7 @@
             مدونة التقني هي مدونة تقوم بتغطية كل ماهو جديد في عالم التقنية
             من مقالات وأخبار عن 
             <br>
-            <span>.البرمجة, الذكاء الصناعي, الشبكات والعديد من المجالات</span>
+            <span>البرمجة, الذكاء الصناعي, الشبكات والعديد من المجالات.</span>
         </p>
     </div>
 </div>
@@ -48,8 +48,13 @@
                         ?>
 
                             <div class="article">
-                                <img src="Admin/uploads/<?=$row["article_img"]?>" alt="">
-                                <h3><a href="articles.php?action=article&id=<?=$row["article_id"]?>"><?=$row["article_title"]?></a></h3>
+                                <img
+                                        src     =   "Admin/uploads/<?=$row["article_img"]?>"
+                                        alt     =   ""
+                                >
+                                <h3>
+                                    <a href="articles.php?action=article&id=<?=$row["article_id"]?>"><?=$row["article_title"]?></a>
+                                </h3>
                                 <span>الكاتب: <?=$row["username"]?></span>
                                 <span>تاريخ النشر: <?=$row["date_publication"]?></span>
                             </div>
@@ -98,8 +103,13 @@
                     ?>
 
                         <div class="article-liked">
-                            <img src="Admin/uploads/<?=$mostLike["article_img"]?>" alt="">
-                            <h3><a href="articles.php?action=article&id=<?=$mostLike["article_id"]?>"><?=$mostLike["article_title"]?></a></h3>
+                            <img
+                                    src     =   "Admin/uploads/<?=$mostLike["article_img"]?>"
+                                    alt     =   ""
+                            >
+                            <h3>
+                                <a href="articles.php?action=article&id=<?=$mostLike["article_id"]?>"><?=$mostLike["article_title"]?></a>
+                            </h3>
                             <div class="likes">
                                 <i class="fa-solid fa-thumbs-up"></i>
                                 <span><?=$mostLike["MOST_LIKES"]?></span>
@@ -147,7 +157,10 @@
                     ?>
 
                         <div class="article-view">
-                            <img src="Admin/uploads/<?=$mostView["article_img"]?>" alt="">
+                            <img
+                                    src     =   "Admin/uploads/<?=$mostView["article_img"]?>"
+                                    alt     =   ""
+                            >
                             <h3>
                                 <a href="articles.php?action=article&id=<?=$mostView["article_id"]?>"><?=$mostView["article_title"]?></a>
                             </h3>

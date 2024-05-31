@@ -2,6 +2,7 @@
 
     session_start();
 
+    // Require the connection file
     require_once "../Admin/connection.php";
 
     // Get like data to insert it into database

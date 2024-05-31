@@ -77,7 +77,11 @@
 
                                                                 ?>
 
-                                                                    <img class="avatar" src="uploads\<?=$row["user_img"]?>" alt="">
+                                                                    <img
+                                                                            class   ="avatar"
+                                                                            src     ="uploads\<?=$row["user_img"]?>"
+                                                                            alt     =""
+                                                                    >
 
                                                                 <?php
 
@@ -85,7 +89,11 @@
 
                                                                 ?>
                                                                     <!-- Defalut image -->
-                                                                    <img class="avatar" src="uploads\defualt_image.png" alt="">
+                                                                    <img
+                                                                            class   =   "avatar"
+                                                                            src     =   "uploads\defualt_image.png"
+                                                                            alt     =   ""
+                                                                    >
 
                                                                 <?php
 
@@ -96,7 +104,9 @@
                                                     </td>
                                                     <td class="date-reg"><?=$row["date_registration"]?></td>
                                                     <td>
-                                                        <a class="delete" href="?action=delete&id=<?=$row["user_id"]?>">delete</a>
+                                                        <a
+                                                            class   =   "delete"
+                                                            href    =   "?action=delete&id=<?=$row["user_id"]?>">delete</a>
                                                     </td>
                                                 </tr>
 
@@ -133,13 +143,29 @@
 
                     <div class="container">
                         <h1 class="title">Profile</h1>
-                        <form class="show-profile" action="?action=update" method="POST" enctype= multipart/form-data>
+                        <form
+                                class   =   "show-profile"
+                                action  =   "?action=update"
+                                method  =   "POST"
+                                enctype =   multipart/form-data
+                        >
                             <h4>Username</h4>
-                            <input type="text" name="username" value="<?=$row["username"]?>" />
+                            <input
+                                    type    =   "text"
+                                    name    =   "username"
+                                    value   =   "<?=$row["username"]?>"
+                            />
                             <h4>Email</h4>
-                            <input type="text" name="email" value="<?=$row["email"]?>" />
+                            <input
+                                    type    =   "text"
+                                    name    =   "email"
+                                    value   =   "<?=$row["email"]?>"
+                            />
                             <h4>Avatar</h4>
-                            <input type="file" name="avatar"/>
+                            <input
+                                    type    =   "file"
+                                    name    =   "avatar"
+                            />
 
                             <?php
 
@@ -147,7 +173,11 @@
 
                                     ?>
 
-                                        <img class="avatar" src="uploads\<?=$row["user_img"]?>" alt="">
+                                        <img
+                                                class   =   "avatar"
+                                                src     =   "uploads\<?=$row["user_img"]?>"
+                                                alt     =   ""
+                                        >
 
                                     <?php
                                     
@@ -156,7 +186,11 @@
                                     ?>
 
                                         <!-- Defalut image -->
-                                        <img class="avatar" src="uploads\defualt_image.png" alt="">
+                                        <img
+                                                class   =   "avatar"
+                                                src     =   "uploads\defualt_image.png"
+                                                alt     =   ""
+                                        >
 
                                     <?php
 
@@ -164,8 +198,15 @@
 
                             ?>
 
-                            <input type="hidden" name="user_id" value="<?=$sessionID?>">
-                            <input type="submit" value="Update" />
+                            <input
+                                    type    =   "hidden"
+                                    name    =   "user_id"
+                                    value   =   "<?=$sessionID?>"
+                            >
+                            <input
+                                    type    =   "submit"
+                                    value   =   "Update"
+                            />
                         </form>
                     </div>
 
@@ -178,7 +219,7 @@
             // Remove permissions of admin only by root
             if($checkRole === 1) {
 
-                $userid = isset($_GET["id"]) ? intval($_GET["id"]) : 0;
+                $userid = isset($_GET["id"]) && is_numeric($_GET["id"]) ? intval($_GET["id"]) : 0;
     
                 $check = checkData(
                     "users",

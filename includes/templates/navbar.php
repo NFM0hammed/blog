@@ -10,7 +10,7 @@
 
                         <a href="logout.php">خروج</a>
                         <a href="profile.php"><?=$_SESSION["user"]?></a>
-
+                        
                     <?php
 
                 } else {
@@ -36,13 +36,11 @@
                 <a href="IT-section.php">قسم تقنية المعلومات</a>
                 <a href="index.php">الرئيسية</a>
             </div>
-            <!-- <div class="logo">
-                <h1>مدونة التقني</h1>
-                <i class="fa-solid fa-blog"></i>
-            </div> -->
             <div class="logo">
-                <img src="./layout/logo/icon2.svg" alt="">
-                <img src="./layout/logo/icon.svg" alt="">
+                <img
+                        src     =    "./layout/logo/logo.svg"
+                        alt     =   ""
+                >
             </div>
         </div>
     </div>

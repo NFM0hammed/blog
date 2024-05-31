@@ -2,6 +2,7 @@
 
     session_start();
 
+    // Require the connection file
     require_once "../Admin/connection.php";
 
     // Get comment data to insert it into database
@@ -82,15 +83,31 @@
                     
                             <div class='info'>
 
-                                <span> " . $row["username"] . " </span>
+                                <div class='my-profile'>
+                                
+                                    <a href='userprofile.php?action=profile&id=" . $row["user_id"] . "'>الملف الشخصي</a>
 
-                                $img
+                                </div>
+
+                                <div class='user-comment'>
+                                
+                                    <span> " . $row["username"] . " / بواسطة</span>
+
+                                    $img
+                                
+                                </div>
 
                             </div>
 
-                            <span> ". $row["comment_date"] . " </span>
+                            <hr>
 
-                            <p> " . $row["comment_content"] . " </p>
+                            <div class='comment-content'>
+                            
+                                <p> " . $row["comment_content"] . " </p>
+
+                                <span> ". $row["comment_date"] . " كتب في تاريخ </span>
+
+                            </div>
                             
                     ";
 

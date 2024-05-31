@@ -2,7 +2,7 @@
 
     session_start();
     
-    // Include the connection file
+    // Require the connection file
     require_once "../Admin/connection.php";
 
     // Get data to check it into database

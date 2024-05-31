@@ -1,6 +1,6 @@
 <?php
 
-    // Include the connection file
+    // Require the connection file
     require_once "../Admin/connection.php";
 
     // Get data to insert it into database

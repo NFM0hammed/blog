@@ -72,7 +72,7 @@ nav .navbar {
     font-size: 22px;
     cursor: pointer;
 }
-@media(max-width: 767px) {
+@media(max-width: 991px) {
     .menu {
         display: block !important;
     }
@@ -82,7 +82,7 @@ nav .navbar ul {
     margin: 0;
     padding: 0;
 }
-@media(max-width: 767px) {
+@media(max-width: 991px) {
     nav .navbar ul {
         display: none;
         flex-direction: column;
@@ -94,6 +94,7 @@ nav .navbar ul {
     }
     nav .navbar ul.open {
         display: flex;
+        width: 100%;
     }
 }
 nav .navbar a {
@@ -101,8 +102,19 @@ nav .navbar a {
     padding: 15px 10px;
     transition: var(--transition);
 }
-nav .navbar ul a {
-    margin: 0 25px 0 0;
+@media(max-width: 991px) {
+    nav .navbar ul li {
+        border-bottom: 1px solid #3fc3ff;
+        transition: var(--transition);
+    }
+    nav .navbar ul li:hover a {
+        background-color: #3fc3ff;
+    }
+}
+@media(min-width: 992px) {
+    nav .navbar ul a {
+        margin: 0 25px 0 0;
+    }
 }
 nav .navbar a:hover {
     background-color: var(--mainColor);
@@ -143,6 +155,9 @@ table tr:first-of-type {
 table tr th,
 table tr td:not([class="date-reg"]) {
     padding: 20px 50px;
+}
+table tr td:nth-of-type(4) {
+    min-width: 200px;
 }
 table tr td.dir {
     direction: rtl;
@@ -210,6 +225,12 @@ table tr td a.add {
 .article-img {
     width: 100%;
     height: 500px;
+}
+@media(max-width: 767px) {
+    .article-img {
+        width: 100%;
+        height: auto;
+    }
 }
 .avatar {
     width: 60px;
@@ -354,6 +375,12 @@ table tr td a.add {
     margin-top: var(--margin);
     direction: rtl;
     padding-bottom: 1px;
+}
+@media(max-width: 1199px) {
+    .last-three-comms {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
 }
 /* End dashboard page */
 

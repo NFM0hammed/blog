@@ -5,6 +5,7 @@
     --mainColor: #03a9f4;
     --blackColor: #000;
     --whiteColor: #fff;
+    --grayColor: #777;
     --padding: 80px;
     --transition: .3s;
 }
@@ -42,6 +43,7 @@ body {
     opacity: 0;
     visibility: hidden;
     transition: var(--transition);
+    z-index: 1;
 }
 .scroll-to-top:hover {
     background-color: #03a9f4a1;
@@ -90,7 +92,20 @@ li {
         width: 1170px;
     }
 }
-.signup-signin {
+#border {
+    border-right: 5px solid var(--grayColor);
+}
+.img-article {
+    width: 100%;
+    height: 400px;
+}
+@media(max-width: 767px) {
+    .img-article {
+        height: 200px;
+    }
+}
+.signup-signin,
+.reset-password {
     color: var(--mainColor);
     text-align: center;
     font-weight: normal;
@@ -132,12 +147,11 @@ li {
 }
 .description {
     background-color: var(--secondBackgroundColor);
-    color: #777;
+    color: var(--grayColor);
     text-align: right;
     font-size: 15px;
     margin-top: 50px;
     padding: 20px 10px;
-    border-right: 5px solid;
 }
 @media(max-width: 767px) {
     .description {
@@ -159,18 +173,20 @@ li {
     }
 }
 .categories .category {
+    display: none;
     margin-top: 50px;
     padding-bottom: 10px;
 }
 .categories .category:last-of-type hr {
     display: none;
 }
-.categories .category img {
-    width: 100%;
-    height: 400px;
-}
 .categories .category h3 {
     font-size: 22px;
+}
+@media(max-width: 767px) {
+    .categories .category h3 {
+        font-size: 18px;
+    }
 }
 .categories .category h3 a {
     color: var(--mainColor);
@@ -180,7 +196,7 @@ li {
     text-decoration: underline;
 }
 .categories .category p {
-    color: #777;
+    color: var(--grayColor);
     text-align: right;
     margin-right: 20px;
     line-height: 1.8;
@@ -192,17 +208,38 @@ li {
     text-decoration: underline;
     margin-right: 5px;
 }
-.categories .category span {
-    display: block;
-    color: #777;
-    font-size: 15px;
-    text-align: center;
-    margin-top: 20px;
+.categories .category .info {
+    background-color: var(--secondBackgroundColor);
+    text-align: right;
+    padding: 10px;
     direction: rtl;
+}
+.categories .category .info span {
+    display: block;
+    background-color: var(--whiteColor);
+    color: var(--grayColor);
+    margin: 20px 0;
+    padding: 15px 5px;
+    border-bottom: 1px solid #eee;
 }
 hr {
     margin-top: 40px;
     border: 1px dotted #eee;
+}
+.categories .next-prev {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+.categories .next-prev button {
+    background: none;
+    color: var(--mainColor);
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+}
+.categories .number-articles span {
+    color: var(--grayColor);
 }
 .get-articles {
     background-color: var(--whiteColor);
@@ -245,7 +282,11 @@ hr {
     font-size: 20px;
     direction: rtl;
     padding: 20px 10px;
-    border-right: 5px solid;
+}
+.get-articles .writer .info {
+    display: flex;
+    justify-content: end;
+    align-items: center;
 }
 .get-articles .writer > span {
     display: block;
@@ -253,14 +294,11 @@ hr {
     font-size: 13px;
     margin: 10px;
 }
-.get-articles .writer .info {
-    display: flex;
-    justify-content: end;
-    align-items: center;
-}
-.get-articles .writer .info span {
-    color: var(--mainBackgroundColor);
+.get-articles .writer .info a {
+    color: var(--mainColor);
+    text-align: right;
     margin-right: 10px;
+    transition: var(--transition);
 }
 .get-articles .writer .info img {
     width: 50px;
@@ -301,43 +339,22 @@ hr {
     color: #03f203;
     font-weight: bold;
 }
-.get-articles img {
-    width: 100%;
-    height: 400px;
-}
 .get-articles > p {
     background-color: var(--secondBackgroundColor);
-    text-align: right;
+    text-align: justify;
     line-height: 3;
     direction: rtl;
     padding: 20px;
-    border-top: 2px solid;
 }
 .get-articles p span {
     display: block;
-    color: #777;
+    color: var(--grayColor);
 }
 .get-articles p span:first-of-type {
     margin-top: 50px;
 }
 .comments {
     margin-top: 50px;
-}
-.comments h3 {
-    position: relative;
-    text-align: right;
-    font-weight: normal;
-    padding-top: 20px;
-    border-top: 1px solid #eee;
-}
-.comments h3::after {
-    position: absolute;
-    content: "";
-    background-color: #eee;
-    width: 15px;
-    height: 2px;
-    bottom: -10px;
-    right: 0;
 }
 .comments .show-comments {
     position: relative;
@@ -356,25 +373,53 @@ hr {
 }
 .comments .show-comments .info {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.comments .show-comments .info .my-profile a {
+    color: var(--mainColor);
+    font-weight: 600;
+    transition: var(--transition);
+}
+.comments .show-comments .info .my-profile a:hover {
+    color: #9cddfb
+}
+.comments .show-comments .info .user-comment {
+    display: flex;
     justify-content: end;
     align-items: center;
+    flex: 1;
     gap: 10px;
 }
-.comments .show-comments .info img {
+.comments .show-comments .info .user-comment span {
+    flex: 1;
+    text-align: right;
+}
+.comments .show-comments .info .user-comment img {
     width: 50px;
     height: 50px;
     border-radius: 50%;
 }
-.comments .show-comments > span {
-    display: block;
-    color: #777;
-    text-align: right;
-    font-size: 14px;
-    margin-top: 20px;
+.comments .show-comments .comment-content {
+    background-color: var(--whiteColor);
+    padding: 10px;
+    font-size: 15px;
 }
-.comments .show-comments p {
-    margin-top: 30px;
+@media(max-width: 767px) {
+    .comments .show-comments .comment-content {
+        font-size: 14px;
+    }
+}
+.comments .show-comments .comment-content p {
     direction: rtl;
+    color: var(--mainColor);
+    font-weight: 600;
+}
+.comments .show-comments .comment-content > span {
+    display: block;
+    color: var(--grayColor);
+    text-align: right;
+    margin: 30px 0 20px;
 }
 .no-comments {
     background-color: #ffc200;
@@ -461,7 +506,7 @@ nav {
     display: flex;
     gap: 30px;
 }
-@media(max-width: 767px) {
+@media(max-width: 991px) {
     .navbar .menu {
         display: block;
     }
@@ -472,7 +517,7 @@ nav {
         flex-direction: column-reverse;
         text-align: right;
         width: 100%;
-        top: 109px;
+        top: 81px;
         left: 0;
         padding: 20px;
         border-top: 1px solid #fafafa4a;
@@ -484,17 +529,13 @@ nav {
 }
 .navbar .links a {
     color: var(--whiteColor);
+    font-size: 15px;
 }
 .navbar .links a:hover {
     text-decoration: underline;
 }
-.navbar .logo {
-    display: flex;
-    align-items: center;
-    margin: 0 -25px;
-}
 .logo img {
-    width: 120px;
+    width: 170px;
 }
 /* End navbar */
 
@@ -508,33 +549,38 @@ nav {
     position: absolute;
     text-align: center;
     font-size: 20px;
-    width: 100%;
+    width: fit-content;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    direction: rtl;
+}
+@media(max-width: 767px) {
+    .banner .info {
+        width: 100%;
+    }
 }
 .info h1 {
     color: var(--mainColor);
 }
 @media(max-width: 767px) {
     .info h1 {
-        font-size: 28px;
+        font-size: 24px;
     }
 }
 .info p {
-    color: #777;
+    color: var(--grayColor);
     font-size: 18px;
-    line-height: 1.6;
-}
-@media(max-width: 767px) {
-    .info p {
-        font-size: 16px;
-        line-height: 1.8;
-    }
+    line-height: 1.8;
 }
 .info p span {
     display: block;
     margin-top: 10px;
+}
+@media(max-width: 767px) {
+    .info p span {
+        margin: 0;
+    }
 }
 .last-articles-section {
     background-color: var(--whiteColor);
@@ -619,7 +665,7 @@ nav {
     color: var(--mainColor);
 }
 .articles-liked-section .articles-liked .article-liked .likes span {
-    color: #777;
+    color: var(--grayColor);
 }
 .articles-views-section {
     background-color: var(--whiteColor);
@@ -658,7 +704,7 @@ nav {
     padding: 25px 0;
 }
 .articles-views-section .articles-views .article-view .number-views span:first-child {
-    color: #777;
+    color: var(--grayColor);
     font-size: 18px;
 }
 .articles-views-section .articles-views .article-view .number-views span:last-child {
@@ -674,6 +720,7 @@ nav {
     margin: 80px auto;
     padding: 20px;
     border-radius: 3px;
+    direction: rtl;
 }
 @media(max-width: 767px) {
     .form {
@@ -702,6 +749,12 @@ nav {
 }
 .form input#register:hover {
     background-color: #03a9f4a1;
+}
+.form a {
+    color: var(--mainColor);
+    font-size: 14px;
+    width: fit-content;
+    text-decoration: underline;
 }
 /* End sign up, sign in page */
 
@@ -773,7 +826,7 @@ nav {
 }
 .profile p span {
     display: block;
-    color: #777;
+    color: var(--grayColor);
     font-size: 15px;
     margin-top: 10px;
 }
@@ -793,7 +846,180 @@ nav {
 .profile input[type="submit"]:hover {
     background-color: #03a9f4a1;
 }
+.change-password {
+    text-align: center;
+    width: 500px;
+    max-width: 100%;
+    margin: 50px auto;
+}
+.change-password .update-password h2{
+    color: var(--grayColor);
+    margin: 50px 0;
+}
+.change-password .update-password .success-update,
+.change-password .update-password .failed-update, 
+.change-password .update-password .empty-inputs {
+    display: none;
+    color: var(--whiteColor);
+    width: 300px;
+    padding: 10px;
+    margin: 10px auto;
+}
+.change-password .update-password .success-update {
+    background-color: #03f203;
+}
+.change-password .update-password .failed-update,
+.change-password .update-password .empty-inputs {
+    background-color: red;
+}
+.change-password .update-password {
+    background-color: var(--whiteColor);
+    padding: 100px 0;
+    box-shadow: 0px 5px 15px #eee;
+    direction: rtl;
+}
+.change-password .update-password input {
+    display: block;
+    width: 300px;
+    margin: 10px auto;
+    padding: 10px;
+}
+.change-password .update-password input:not(:last-of-type) {
+    border: 1px solid #eee;
+}
+.change-password .update-password input:last-of-type {
+    background-color: var(--mainColor);
+    color: var(--whiteColor);
+    border: none;
+    cursor: pointer;
+}
+.change-password .update-password input:focus {
+    outline: none;
+}
 /* End profile page */
+
+/* Start user profile page */
+.user-profile {
+    padding-top: var(--padding);
+    padding-bottom: var(--padding);
+}
+.user-profile .info {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: var(--whiteColor);
+    padding: 30px 0;
+}
+@media(max-width: 767px) {
+    .user-profile .info {
+        padding-left: 10px;
+        padding-right: 10px;
+        flex-direction: column;
+    }
+}
+.user-profile .info .stats {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 50%;
+    background-color: var(--secondBackgroundColor);
+    padding: 0 15px;
+    direction: rtl;
+}
+@media(max-width: 767px) {
+    .user-profile .info .stats {
+        width: 100%;
+        margin-top: 20px;
+    }
+}
+.user-profile .info .stats span,
+.user-profile .info .stats a {
+    width: fit-content;
+    margin: 10px 0;
+}
+.user-profile .info .stats a {
+    color: var(--mainColor);
+}
+.user-profile .info .user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-basis: 40%;
+    border-left: 1px solid #f9f9f9;
+}
+@media(max-width: 767px) {
+    .user-profile .info .user-info {
+        order: -1;
+        border: none;
+    }
+}
+.user-profile .info .user-info img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+.user-profile .info .user-info span {
+    margin: 10px 0;
+}
+.user-profile .info .user-info span:first-of-type {
+    color: var(--mainColor);
+    font-weight: 600;
+}
+.user-comments,
+.user-articles {
+    padding-top: var(--padding);
+    padding-bottom: var(--padding);
+    direction: rtl;
+}
+.user-comments hr:last-of-type,
+.user-articles hr:last-of-type {
+    display: none;
+}
+.comments h3,
+.user-profile h3,
+.user-comments h3,
+.user-articles h3 {
+    background-color: var(--mainColor);
+    color: var(--whiteColor);
+    text-align: right;
+    font-weight: normal;
+    padding: 20px;
+}
+.user-comments a,
+.user-articles a {
+    color: var(--mainColor);
+    font-size: 18px;
+    font-weight: 600;
+    width: fit-content;
+    margin: 30px 0 0;
+}
+.user-comments a:hover,
+.user-articles a:hover {
+    text-decoration: underline;
+}
+.user-comments .comments,
+.user-articles .articles {
+    background-color: var(--whiteColor);
+    text-align: right;
+    margin: 30px 0 0;
+    padding: 25px 15px;
+}
+@media(max-width: 767px) {
+    .user-comments .comments,
+    .user-articles .articles {
+        font-size: 14px;
+    }
+}
+.user-comments .comments p,
+.user-articles .articles p {
+    font-weight: 600;
+    margin: 0 0 10px;
+    line-height: 1.6;
+}
+.user-comments .comments span,
+.user-articles .articles span {
+    color: var(--grayColor);
+}
+/* End user profile page */
 
 /* Start footer section */
 footer {

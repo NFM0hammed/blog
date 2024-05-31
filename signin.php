@@ -19,17 +19,28 @@
 <!-- Start sign in form -->
 <div class="container">
     <div class="form sign-in">
-        <h1 class="signup-signin">Login</h1>
-        <input class="signin_email"    type="text"     placeholder="Email" />
-        <input class="signin_password" type="password" placeholder="Password" />
-        <input class="signin_submit"   type="submit"   id="register" value="Sign in" />
+        <h1 class="signup-signin">تسجيل الدخول</h1>
+        <input
+                class       =   "signin_email"
+                type        =   "text"
+                placeholder =   "الإيميل"
+        />
+        <input
+                class       =   "signin_password"
+                type        =   "password"
+                placeholder =   "كلمة المرور"
+        />
+        <input
+                class       =   "signin_submit"
+                type        =   "submit"
+                id          =   "register"
+                value       =   "دخول"
+        />
     </div>
 </div>
 
 <script>
-    /*
-        Sign in Ajax
-    */
+    // Sign in Ajax
     let signin_email    =  document.querySelector(".sign-in .signin_email"),
         signin_password =  document.querySelector(".sign-in .signin_password"),
         signin_submit   =  document.querySelector(".sign-in .signin_submit"),
@@ -53,7 +64,7 @@
             
                     emptyEmail.className = "error";
             
-                    emptyEmail.textContent = "The email is empty !";
+                    emptyEmail.textContent = "الإيميل فارغ !";
             
                     signin_email.before(emptyEmail);
                     
@@ -69,7 +80,7 @@
             
                     emptyPassword.className = "error";
             
-                    emptyPassword.textContent = "The password is empty !";
+                    emptyPassword.textContent = "كلمة المرور فارغة !";
             
                     signin_password.before(emptyPassword);
                     
@@ -92,7 +103,7 @@
 
                         failedLogin.className = "error";
 
-                        failedLogin.textContent = "Username or password isn't correct !";
+                        failedLogin.textContent = "الإيميل أو كلمة المرور غير صحيحة !";
 
                         signin_email.before(failedLogin);
         
@@ -117,5 +128,4 @@
         request.send(`email=${signin_email.value}&password=${signin_password.value}`);
 
     });
-    
 </script>

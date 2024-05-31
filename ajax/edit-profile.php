@@ -1,12 +1,14 @@
 <?php
     
-    // Include the connection file
+    session_start();
+
+    // Require the connection file
     require_once "../Admin/connection.php";
     
     // // Get data to insert it into database
     if(isset($_POST["allData"])) {
     
-        $allData  = json_decode($_POST["allData"]);
+        $allData      = json_decode($_POST["allData"]);
 
         $imgName      = $_FILES["file"]["name"]; // Name of img
         $imgSize      = $_FILES["file"]["size"]; // Size of img

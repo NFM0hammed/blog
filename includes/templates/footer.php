@@ -7,7 +7,6 @@
                         <a href="https://github.com/NFM0hammed"><i class="fa-brands fa-github github"></i></a>
                         <a href="https://codepen.com/NFM0hammed"><i class="fa-brands fa-codepen codepen"></i></a>
                         <a href="https://twitter.com/NFM0hammed"><i class="fa-brands fa-twitter twitter"></i></a>
-                        <a href="https://facebook.com/nayouf305"><i class="fa-brands fa-facebook-f facebook"></i></a>
                     </div>
                 </div>
             </div>

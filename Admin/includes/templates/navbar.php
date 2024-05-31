@@ -7,6 +7,7 @@
                 <li><a href="members.php">Members</a></li>
                 <li><a href="articles.php">Articles</a></li>
                 <li><a href="categories.php">Categories</a></li>
+                <li><a href="comments.php">Comments</a></li>
                 <li><a href="logout.php">Logout</a></li>
             </ul>
             <a href="profile.php"><?=$_SESSION["username"]?></a>

@@ -44,8 +44,9 @@
 
                 <div class="container">
                     <div class="profile">
-                        <h1 class="title">الملف الشخصي</h1>
-                        <a href="?action=edit&id=<?=$row["user_id"]?>">Edit</a>
+                        <h1 class="title">الإعدادات</h1>
+                        <a href="userprofile.php?action=profile&id=<?=$row["user_id"]?>">الملف الشخصي</a>
+                        <a href="?action=edit&id=<?=$row["user_id"]?>">تعديل</a>
 
                         <?php
 
@@ -53,7 +54,11 @@
 
                                 ?>
 
-                                    <img class="profile-img" src="Admin/uploads/<?=$row["user_img"]?>" alt="">
+                                    <img
+                                            class   =   "profile-img"
+                                            src     =   "Admin/uploads/<?=$row["user_img"]?>"
+                                            alt     =   ""
+                                    >
                                     <span class="avatar">Avatar</span>
 
                                 <?php
@@ -62,8 +67,13 @@
 
                                 ?>
 
-                                    <img class="profile-img" src="Admin/uploads/defualt_image.png" alt="">
-                                    <span class="avatar">Avatar</span>
+                                    <!-- Defualt image -->
+                                    <img
+                                            class   =   "profile-img"
+                                            src     =   "Admin/uploads/defualt_image.png"
+                                            alt     =   ""
+                                    >
+                                    <span class="avatar">الصورة الرمزية</span>
 
                                 <?php
 
@@ -72,11 +82,19 @@
                         ?>
 
                         <div class="profile-info">
-                            <input type="text" value="<?=$row["username"]?>" readonly />
-                            <input type="text" value="<?=$row["email"]?>" readonly />
+                            <input
+                                    type    =   "text"
+                                    value   =   "<?=$row["username"]?>"
+                                    readonly
+                            />
+                            <input
+                                    type    =   "text"
+                                    value   =   "<?=$row["email"]?>"
+                                    readonly
+                            />
                         </div>
                         <p class="date_registration">
-                            Date registration
+                            تاريخ التسجيل
                             <span><?=$row["date_registration"]?></span>
                         </p>
                     </div>
@@ -102,10 +120,19 @@
 
                                     ?>
 
-                                        <input type="file" id="profile-img" />
-                                        <label class="profile-img" for="profile-img">
-                                            <img src="Admin/uploads/<?=$row["user_img"]?>" alt="">
-                                            <span class="avatar">Avatar</span>
+                                        <input
+                                                type    =   "file"
+                                                id      =   "profile-img"
+                                        />
+                                        <label
+                                                class   =   "profile-img"
+                                                for     =   "profile-img"
+                                        >
+                                            <img
+                                                    src =   "Admin/uploads/<?=$row["user_img"]?>"
+                                                    alt =   ""
+                                            >
+                                            <span class="avatar">الصورة الرمزية</span>
                                         </label>
 
                                     <?php
@@ -114,10 +141,19 @@
 
                                     ?>
 
-                                        <input type="file" id="profile-img" />
-                                        <label class="profile-img" for="profile-img">
-                                            <img src="Admin/uploads/defualt_image.png" alt="">
-                                            <span class="avatar">Avatar</span>
+                                        <input
+                                                type    =   "file"
+                                                id      =   "profile-img"
+                                        />
+                                        <label
+                                                class   =   "profile-img"
+                                                for     =   "profile-img"
+                                        >
+                                            <img
+                                                    src =   "Admin/uploads/defualt_image.png"
+                                                    alt =   ""
+                                            >
+                                            <span class="avatar">الصورة الرمزية</span>
                                         </label>
 
                                     <?php
@@ -127,15 +163,29 @@
                             ?>
 
                             <div class="profile-info">
-                                <input class="username" type="text" value="<?=$row["username"]?>" placeholder="Username" />
-                                <input class="email" type="text" value="<?=$row["email"]?>" placeholder="Email" />
+                                <input
+                                        class       =   "username"
+                                        type        =   "text"
+                                        value       =   "<?=$row["username"]?>"
+                                        placeholder =   "Username"
+                                />
+                                <input
+                                        class       =   "email"
+                                        type        =   "text"
+                                        value       =   "<?=$row["email"]?>"
+                                        placeholder =   "Email"
+                                />
                             </div>
-                            <p class="date_registration">
-                                Date registration
-                                <span><?=$row["date_registration"]?></span>
-                            </p>
-                            <input class="user-id" type="hidden" value="<?=$row["user_id"]?>" />
-                            <input type="submit" value="Update" />
+                            <a href="?action=changepassword&id=<?=$row["user_id"]?>">تغيير كلمة المرور</a>
+                            <input
+                                    class   =   "user-id"
+                                    type    =   "hidden"
+                                    value   =   "<?=$row["user_id"]?>"
+                            />
+                            <input
+                                    type    =   "submit"
+                                    value   =   "تحديث"
+                            />
                         </div>
                     </div>
 
@@ -157,6 +207,62 @@
             }
 
 
+        } elseif($action === "changepassword") {
+
+            $id = isset($_GET["id"]) && is_numeric($_GET["id"]) ? intval($_GET["id"]) : 0;
+
+            if($id == $userId) {
+
+                ?>
+
+                    <div class="container">
+                        <div class="change-password">
+                            <div class="update-password">
+                                <h2>تغيير كلمة المرور</h2>
+                                <div class="success-update">تم التحديث</div>
+                                <div class="failed-update">كلمة المرور غير صحيحة !</div>
+                                <div class="empty-inputs">يجب ملء الحقول !</div>
+                                <input
+                                        type        =   "password"
+                                        id          =   "old-pass"
+                                        placeholder =   "كلمة المرور القديمة"
+                                />
+                                <input
+                                        type        =   "password"
+                                        id          =   "new-pass"
+                                        placeholder =   "كلمة المرور الجديدة" 
+                                />
+                                <input
+                                        class       =   "user-id"
+                                        type        =   "hidden"
+                                        value       =   "<?=$row["user_id"]?>"
+                                />
+                                <input
+                                        type        =   "submit"
+                                        id          =   "update"
+                                        value       =   "تحديث"
+                                />
+                            </div>
+                        </div>
+                    </div>
+
+                <?php
+
+            } else {
+
+                ?>
+
+                    <div class="container">
+                        <div class="error">
+                            This id doesn't exists !
+                            <i class="fa-solid fa-circle-exclamation error-icon"></i>
+                        </div>
+                    </div>
+
+                <?php
+
+            }
+
         } else {
 
             ?>
@@ -177,9 +283,7 @@
 ?>
 
 <script>
-    /*
-        Edit profile Ajax
-    */
+    // Edit profile Ajax
     let profile    = document.querySelector(".profile"),
         avatar     = document.querySelector(".profile #profile-img"),
         user_id    = document.querySelector(".profile .user-id"),
@@ -294,6 +398,78 @@
 
     }
 
+    // Update password using AJAX
+    let update = document.getElementById("update");
+
+    update && update.addEventListener("click", () => {
+
+        let user_id       = document.querySelector(".change-password .update-password .user-id"),
+            oldPassword   = document.getElementById("old-pass"),
+            newPassword   = document.getElementById("new-pass"),
+            successUpdate = document.querySelector(".success-update"),
+            failedUpdate  = document.querySelector(".failed-update"),
+            emptyInputs   = document.querySelector(".empty-inputs");
+
+        let arrayOfData = {
+            "id": user_id.value,
+            "oldPassword": oldPassword.value,
+            "newPassword": newPassword.value,
+        };
+
+        fetch("ajax/change-password.php", {
+            method: "POST",
+            headers: {
+                "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
+            },
+            body: JSON.stringify(arrayOfData),
+            
+        }).then((response) => {
+
+            if(response.ok) {
+
+                return response.text();
+
+            }
+            
+        })
+        
+          .then((data) => {
+            
+            if(oldPassword.value != "" && newPassword.value != "") {
+
+                emptyInputs.style.display = "none";
+
+                if(data == 1) {
+
+                    failedUpdate.style.display = "none";
+
+                    successUpdate.style.display = "block";
+
+                    oldPassword.value = "";
+
+                    newPassword.value = "";
+
+                } else {
+
+                    successUpdate.style.display = "none";
+
+                    failedUpdate.style.display = "block";
+
+                }
+
+            } else {
+
+                failedUpdate.style.display = "none";
+
+                successUpdate.style.display = "none";
+
+                emptyInputs.style.display = "block";
+
+            }
+
+        });
+
+    });
 </script>
 
 <?php include $template . "footer.php"; ?>

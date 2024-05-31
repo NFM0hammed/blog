@@ -13,6 +13,30 @@
         
     }
 
+    // Function to check user data [users | admins] from database
+    function checkUserData($table, $groupId, $getId) {
+
+        global $conn;
+
+        $stmt = $conn->prepare(
+            "SELECT
+                user_id
+            FROM
+                $table
+            WHERE
+                user_id = ? AND group_id = $groupId"
+        );
+
+        $stmt->execute(array(
+            $getId
+        ));
+
+        $count = $stmt->rowCount();
+
+        return $count;
+
+    }
+
     // Function to check data from database
     function checkData($table, $id, $getId) {
 
