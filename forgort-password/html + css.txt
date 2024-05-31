@@ -1,2 +1,0 @@
-<a href="forgot-password.php?action=reset-password">Forgot password ?</a>
-
